@@ -6,11 +6,7 @@ import org.junit.AfterClass;
 import org.junit.Test;
 
 import edu.iut.app.ApplicationErrorLog;
-/**
- * 
- * @author Anita RADJA / Nathalie RIVOHERINJAKANAVALONA
- *
- */
+
 public class ApplicationErrorLogTest {
 
 	@Test

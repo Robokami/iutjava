@@ -5,11 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import edu.iut.app.ApplicationWarningLog;
-/**
- * 
- * @author Anita RADJA / Nathalie RIVOHERINJAKANAVALONA
- *
- */
+
 public class ApplicationWarningLogTest {
 
 	@Test
