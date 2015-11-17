@@ -22,11 +22,11 @@ public class ApplicationSession {
 		Locale.setDefault(new Locale("US"));
 		
 		locale = Locale.getDefault();
-		resourceBundle = ResourceBundle.getBundle("edt.iut.exceptions", locale);
-		sessionGuiLogger = /* Initialiser le logger */
-		sessionGuiLogger.setLevel(/* Touls les message doivent être affiché */));
-		sessionExceptionLogger = /* Logger pour exception */
-		sessionExceptionLogger.setLevel(/* Touls les message doivent être affiché */);
+		resourceBundle = ResourceBundle.getBundle("edu.iut.resources.strings.res");
+		sessionGuiLogger = Logger.getLogger("IUTTrain");
+		sessionGuiLogger.setLevel(Level.ALL);
+		sessionExceptionLogger = Logger.getLogger("IUTException");
+		sessionExceptionLogger.setLevel(Level.ALL);
 	}
 	
 	
@@ -47,7 +47,7 @@ public class ApplicationSession {
 	public void setLocale(Locale locale){
 		this.locale = locale;
 		Locale.setDefault(this.locale);
-		resourceBundle=/* récupérer les resources */
+		resourceBundle=ResourceBundle.getBundle("edu.iut.resources.strings.res");
 	}
 	
 	public String getString(String key) {
