@@ -4,19 +4,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import edu.iut.app.ApplicationErrorLog;
 import edu.iut.app.ApplicationInfoLog;
 
 public class ApplicationInfoLogTest {
 
 	@Test
-	public void test() {
-		ApplicationInfoLog info = new ApplicationInfoLog();
-		ApplicationInfoLog info2 = new ApplicationInfoLog();
-
-		System.out.println("Test du message d'erreur");
-		info.setMessage("Un message");
-		assertEquals(info.getMessage(),"[INFO]un message");
-
+	public void testSetMessage() {
+		ApplicationInfoLog a = new ApplicationInfoLog();
+		String mes = new String("Test");
+		a.setMessage(mes);
+		if(a.getMessage() != mes){
+			fail("setMessage() n'a pas fonctionné");
+		}
 	}
 
 }

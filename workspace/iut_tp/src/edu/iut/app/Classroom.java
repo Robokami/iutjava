@@ -3,14 +3,16 @@ package edu.iut.app;
 public class Classroom {
 	
 	public Classroom() {
-		classRoomNumber="not affected";
+	classRoomNumber=ApplicationSession.instance().resourceBundle.getString("notaffected");
 	}
 	public Classroom(String classRoomNumber) {
 		/* EX2: AFFECTATION */;
+		this.classRoomNumber = classRoomNumber;
 	}
 	
 	public void setClassroomNumber(String number) {
 		/* EX2: AFFECTATION */;
+		this.classRoomNumber = number;
 	}
 	public String getClassRoomNumber() {
 		return classRoomNumber;

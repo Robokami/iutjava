@@ -1,9 +1,18 @@
 package edu.iut.app;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JFrame;
+
+import edu.iut.app.Person.PersonFunction;
+import edu.iut.gui.frames.SchedulerFrame;
+import edu.iut.gui.widget.agenda.AgendaPanelFactory.ActiveView;
+
 
 public class ApplicationSession {
 	
@@ -13,7 +22,10 @@ public class ApplicationSession {
 	protected Logger sessionExceptionLogger;
 	protected String[] months;
 	protected String[] days;
-
+	protected Calendar dateSelected;
+	protected Agenda agenda;
+	protected SchedulerFrame myFrame;
+	protected ActiveView actualView;
 
 	private static ApplicationSession session = null;
 	private ApplicationSession() {
@@ -35,7 +47,21 @@ public class ApplicationSession {
 		months[6] = getString("july"); months[7] =  getString("august"); months[8] =  getString("september");
 		months[9] = getString("october"); months[10] =  getString("november"); months[11] =  getString("december");
 		
+		dateSelected = Calendar.getInstance();
+		dateSelected.set(Calendar.MINUTE,0);
+		dateSelected.set(Calendar.SECOND,0);
+		dateSelected.set(Calendar.MILLISECOND,0);
 		
+		agenda = new Agenda();
+		
+		agenda.getStudents().add(new Person(PersonFunction.STUDENT,"Léo","Charlier","leo.charlier@u-psud.fr","0611223344"));
+		
+		
+		agenda.getJurys().add(new Person(PersonFunction.JURY,"Hélène","Maynard","helene.maynard@u-psud.fr","0611223344"));
+		agenda.getJurys().add(new Person(PersonFunction.JURY,"Julien","Tourille","julien.tourille@u-psud.fr","0611223344"));
+		
+		
+		actualView=ActiveView.DAY_VIEW;
 	}
 	
 	
@@ -69,6 +95,44 @@ public class ApplicationSession {
 	public String[] getMonths() {
 		return months;
 	}
+
+
+	public Calendar getDateSelected() {
+		return dateSelected;
+	}
+
+
+	public void setDateSelected(Calendar dateSelected) {
+		this.dateSelected = dateSelected;
+	}
+
+
+	public SchedulerFrame getMyFrame() {
+		return myFrame;
+	}
+
+
+	public void setMyFrame(SchedulerFrame myFrame) {
+		this.myFrame = myFrame;
+	}
+
+
+	public Agenda getAgenda() {
+		return agenda;
+	}
+
+
+	public ActiveView getActualView() {
+		return actualView;
+	}
+
+
+	public void setActualView(ActiveView actualView) {
+		this.actualView = actualView;
+	}
+
+	
+	
 	
 	
 }
